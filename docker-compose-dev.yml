@@ -1,0 +1,14 @@
+#Everywhere in internet use this version
+version: "3.9"
+
+#in docker all container are services
+#it is IMPORTANT to make sure api-node-container image is already BUILT in your system before using docker compose up
+services:
+  sample-node-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./index.js:/app/index.js
+    ports:
+      - 5001:8888

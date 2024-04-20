@@ -1,0 +1,26 @@
+#This file was also created manually and will be used only for Dev
+#I started with a copy of the original Dockerfile
+FROM node:21-alpine 
+
+#This folder is created when container is up and it will place our node app inside
+WORKDIR /app
+
+#Copy our app node dependencies file (but do depending what you are using) to the image
+COPY package*.json ./
+
+#To execute commands
+RUN npm install
+
+RUN npm install -g nodemon  
+
+#Takes all of current directory and copy to the ./app
+COPY . .
+
+#Indicate port to use in the container, actually it is just informative since the real port our node app is using is indicated...
+# in index.js file in line 16
+#I had EXPOSE 3000 and either work it worked.
+EXPOSE 8888
+
+#Run npm to run the app using nodemon and watch changes
+CMD [ "nodemon", "index.js" ]
+
