@@ -1,6 +1,8 @@
 # README
 
+API documented using Swanggergit
 This is a simple API app running on its own Docker container. The app run on Node Alpine and uses Express to start up the app and Mongo DB as data base to store data.
+MongoDB runs in its own container and uses a volume to storage data
 
 ## Set Up
 
