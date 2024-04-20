@@ -5,8 +5,19 @@ version: "3.9"
 #it is IMPORTANT to make sure api-node-container image is already BUILT in your system before using docker compose up
 services:
   sample-node-api:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
     volumes:
       - ./index.js:/app/index.js
     ports:
-      - 5001:8888
+      - "5001:8888"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - ./mongo-db-todo:/data/db
+    ports:
+      - "2717:27017"
