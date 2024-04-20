@@ -3,10 +3,8 @@ const cors = require("cors");//To overwrite express default that disables reques
 const app = Express();
 
 let Mongoclient = require("mongodb").MongoClient;
-const PASSWORD="fZFeVTlc54mVx7Ue";
-const CONNECTION_STRING = "mongodb+srv://sielalb:"+PASSWORD+"@cluster0.06vd3nf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const CONNECTION_STRING = "mongodb://mongodb:27017/todoappdb";
 const DATABASE_NAME = "todoappdb";
-
 let database;
 
 const todoRoutes = require("./routes/todolist.js")

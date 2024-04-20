@@ -11,4 +11,13 @@ services:
     volumes:
       - ./index.js:/app/index.js
     ports:
-      - 5001:8888
+      - "5001:8888"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:lastest
+    volumes:
+      - ~/mongo-db-todo:/data/db
+    ports:
+      - "2117:27017"
