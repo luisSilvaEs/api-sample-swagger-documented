@@ -49,9 +49,30 @@ Therefore to run the app:
 2. Delete the image using the id `docker rmi idImage`
 3. Start the new container (this will generate a new image): `docker compose up`
 
+- To see Swagger documentation go to [http://localhost:5001/api-docs/](http://localhost:5001/api-docs/)
+- To use the API, the endpoint in your front end app should address to:
+  - [http://localhost:5001/api/todoapp/GetNotes](http://localhost:5001/api/todoapp/GetNotes)
+  - [http://localhost:5001/api/todoapp/AddNotes](http://localhost:5001/api/todoapp/AddNotes)
+  - [http://localhost:5001/api/todoapp/DeleteNotes](http://localhost:5001/api/todoapp/DeleteNotes)
+
+### How to update
+
+When making updates in Swagger, in order to validate in real time you can omit the use of Docker and:
+
+1. Run the app `nodemon index.js`
+2. Make the change and validate the chages are reflected correclty in [http://localhost:8888/api-docs/#/Notes/post_api_todoapp_AddNotes](http://localhost:8888/api-docs/#/Notes/post_api_todoapp_AddNotes)
+3. Reload or restar the app.
+
+After changes are done on the node app and to validate before a new release to Prod you should:
+
+1. Save the changes
+2. Stop all container `docker compose down`
+3. Delete the image _api-sample-documented-sample-node-api_ by `docker rmi idImage`
+4. Re start up the container with `docker compose up`, this will create a new image having the changes made on Node
+
 ### Important notes
 
-- The app listens internally port 8888 but is mapped the use the 5001 port of your computer.
+- The app listens internally port 8888 but is mapped the use the 5001 port of Docker.
 
 ### How to stop the container
 
