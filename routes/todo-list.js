@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const multer = require("multer")//To read request form data
-const { getNotes, addNotes, deleteNotes } = require("../controllers/listController")
+const { getNotes, addNotes, deleteNotes } = require("../controllers/list-controller")
 
 /**
  * @swagger
@@ -84,9 +84,32 @@ router.get( '/GetNotes',  getNotes );
  *                             $ref: '#/components/schemas/createNoteResponse'
  * 
 */
-
 router.post( '/AddNotes', multer().none(), addNotes );
 
+/**
+ * @swagger
+ * /api/todoapp/DeleteNotes/{id}:
+ *      delete:
+ *          summary: Delete a note
+ *          tags: [ Notes ]
+ *          consumes: 
+ *              - application/json
+ *          parameters:
+ *              - name: id
+ *                in: path
+ *                required: true
+ *                description: ID of note to delete.
+ *                schema: 
+ *                  type: integer
+ *          responses:
+ *              200:
+ *                  description: Delete Successfully 
+ *                  content: 
+ *                      application/json:
+ *                          schema:
+ *                              type: string
+ *                              example: "Delete Successfully"
+*/
 router.delete( '/DeleteNotes', deleteNotes );
 
 module.exports = router;

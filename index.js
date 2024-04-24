@@ -10,7 +10,7 @@ let database;
 const swaggerUI = require("swagger-ui-express")
 const swaggerJsdoc = require("swagger-jsdoc")
 
-const todoRoutes = require("./routes/todolist.js")
+const todoRoutes = require("./routes/todo-list.js")
 
 app.use(cors());
 
@@ -19,17 +19,17 @@ const options = {
     definition: {
         openapi: "3.0.0",
         info: {
-            title: "ToDo list API documentation",
-            version: "1.0.0",
-            description: "Documentation of API endpoints for ToDo app",
+            title: "To do list API documentation",
+            version: "1.0.1",
+            description: "Documentation of API endpoints for 'to do' app",
             license: {
                 name: "MIT",
-                url: ""
+                url: "https://spdx.org/licenses/MIT.html"
             },
             contact: {
-                name: "",
-                url: "",
-                email: ""
+                name: "Luis Silva",
+                url: "https://github.com/luisSilvaEs",
+                email: "siel_alb@hotmail.com"
             }
         },
         servers: [
