@@ -1,6 +1,6 @@
 # README
 
-API documented using Swangger
+API documented using Swangger.
 This is a simple API app running in its own Docker container. The app is built on Node Alpine, utilizing Express to construct the RESTful API, and MongoDB as the database to store data. MongoDB runs in its dedicated container and utilizes a volume for storing data.
 
 ## Set Up
