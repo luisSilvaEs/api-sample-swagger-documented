@@ -16,8 +16,9 @@ services:
       - mongodb
 
   mongodb:
-    image: mongo:lastest
+    image: mongo:latest
     volumes:
       - ~/mongo-db-todo:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
     ports:
       - "2117:27017"
